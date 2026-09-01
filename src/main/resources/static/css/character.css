@@ -1,0 +1,140 @@
+body {
+    margin: 0;
+    padding: 20px;
+    background-color: #dff0d8;
+    font-family: cursive;
+}
+
+h1 {
+    text-align: center;
+}
+
+.character-form-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 15px;
+
+    max-width: 1400px;
+
+    margin: auto;
+}
+
+section {
+    border: 2px solid black;
+    padding: 15px;
+
+    display: grid;
+
+    grid-template-columns: 160px 1fr;
+
+    gap: 8px;
+}
+
+section h2 {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-top: 0;
+}
+
+section p {
+    grid-column: 1 / -1;
+}
+
+section label {
+    text-align: right;
+}
+
+section input {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.combat input,
+.ability-scores input {
+    width: 80px;
+    justify-self: center;
+    text-align: center;
+}
+
+.basic-info {
+    grid-column: span 2;
+}
+
+.level-experience {
+    grid-column: span 2;
+}
+
+.combat {
+    grid-column: span 1;
+}
+
+.ability-scores {
+    grid-column: span 1;
+}
+
+.status {
+    grid-column: span 1;
+}
+
+.currency {
+    grid-column: span 1;
+}
+
+.equipment {
+    grid-column: span 2;
+}
+
+.proficiencies {
+    grid-column: span 2;
+}
+
+.treasure {
+    grid-column: span 2;
+}
+
+.features {
+    grid-column: span 2;
+}
+
+.weapons {
+    grid-column: span 2;
+}
+
+.armor {
+    grid-column: span 2;
+}
+
+.form-submit {
+    grid-column: 1 / -1;
+    text-align: center;
+}
+
+.form-submit button {
+    padding: 10px 30px;
+}
+
+@media (max-width: 900px) {
+
+    .character-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .basic-info,
+    .level-experience,
+    .combat,
+    .ability-scores,
+    .status,
+    .currency,
+    .equipment,
+    .proficiencies,
+    .treasure,
+    .features,
+    .weapons,
+    .armor {
+        grid-column: span 1;
+    }
+
+}

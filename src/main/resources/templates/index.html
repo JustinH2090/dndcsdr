@@ -5,341 +5,279 @@
 <head>
     <meta charset="UTF-8">
     <title>D&D Character Sheet Generator</title>
+
+    <link rel="stylesheet" th:href="@{/css/Character.css}">
 </head>
 
 <body>
 
 <h1>D&D Character Sheet Generator</h1>
 
-<form th:action="@{/character}"
+<form class="character-form-grid"
+      th:action="@{/character}"
       th:object="${playerCharacter}"
       method="post">
 
-
-    <!-- ========================= -->
-    <!-- BASIC INFORMATION -->
-    <!-- ========================= -->
-
-    <h2>Basic Information</h2>
-
-    <label for="playerName">Player Name:</label>
-    <input id="playerName"
-           type="text"
-           th:field="*{playerName}">
-    <br>
-
-    <label for="characterName">Character Name:</label>
-    <input id="characterName"
-           type="text"
-           th:field="*{characterName}">
-    <br>
-
-    <label for="race">Race:</label>
-    <input id="race"
-           type="text"
-           th:field="*{race}">
-    <br>
-
-    <label for="classType">Class:</label>
-    <input id="classType"
-           type="text"
-           th:field="*{classType}">
-    <br>
-
-    <label for="subClass">Subclass:</label>
-    <input id="subClass"
-           type="text"
-           th:field="*{subClass}">
-    <br>
-
-    <label for="background">Background:</label>
-    <input id="background"
-           type="text"
-           th:field="*{background}">
-    <br>
-
-    <label for="alignment">Alignment:</label>
-    <input id="alignment"
-           type="text"
-           th:field="*{alignment}">
-    <br>
-
-
-    <!-- ========================= -->
-    <!-- LEVEL / EXPERIENCE -->
-    <!-- ========================= -->
-
-    <h2>Level and Experience</h2>
-
-    <label for="level">Level:</label>
-    <input id="level"
-           type="number"
-           th:field="*{level}">
-    <br>
-
-    <label for="proficiencyBonus">Proficiency Bonus:</label>
-    <input id="proficiencyBonus"
-           type="number"
-           th:field="*{proficiencyBonus}">
-    <br>
-
-    <label for="experiencePoints">Experience Points:</label>
-    <input id="experiencePoints"
-           type="number"
-           th:field="*{experiencePoints}">
-    <br>
-
-
-    <!-- ========================= -->
-    <!-- COMBAT -->
-    <!-- ========================= -->
-
-    <h2>Combat</h2>
-
-    <label for="armorClass">Armor Class:</label>
-    <input id="armorClass"
-           type="number"
-           th:field="*{armorClass}">
-    <br>
-
-    <label for="initiative">Initiative:</label>
-    <input id="initiative"
-           type="number"
-           th:field="*{initiative}">
-    <br>
-
-    <label for="speed">Speed:</label>
-    <input id="speed"
-           type="number"
-           th:field="*{speed}">
-    <br>
-
-    <label for="currentHp">Current HP:</label>
-    <input id="currentHp"
-           type="number"
-           th:field="*{currentHp}">
-    <br>
-
-    <label for="maxHp">Maximum HP:</label>
-    <input id="maxHp"
-           type="number"
-           th:field="*{maxHp}">
-    <br>
-
-    <label for="tempHp">Temporary HP:</label>
-    <input id="tempHp"
-           type="number"
-           th:field="*{tempHp}">
-    <br>
-
-
-    <!-- ========================= -->
-    <!-- ABILITY SCORES -->
-    <!-- ========================= -->
-
-    <h2>Ability Scores</h2>
-
-    <label for="strength">Strength:</label>
-    <input id="strength"
-           type="number"
-           th:field="*{abilityScores.strength}">
-    <br>
-
-    <label for="dexterity">Dexterity:</label>
-    <input id="dexterity"
-           type="number"
-           th:field="*{abilityScores.dexterity}">
-    <br>
-
-    <label for="constitution">Constitution:</label>
-    <input id="constitution"
-           type="number"
-           th:field="*{abilityScores.constitution}">
-    <br>
-
-    <label for="intelligence">Intelligence:</label>
-    <input id="intelligence"
-           type="number"
-           th:field="*{abilityScores.intelligence}">
-    <br>
-
-    <label for="wisdom">Wisdom:</label>
-    <input id="wisdom"
-           type="number"
-           th:field="*{abilityScores.wisdom}">
-    <br>
-
-    <label for="charisma">Charisma:</label>
-    <input id="charisma"
-           type="number"
-           th:field="*{abilityScores.charisma}">
-    <br>
-
-
-    <!-- ========================= -->
-    <!-- DEATH SAVES / EXHAUSTION -->
-    <!-- ========================= -->
-
-    <h2>Status</h2>
-
-    <label for="deathSaveSuccesses">
-        Death Save Successes:
-    </label>
-
-    <input id="deathSaveSuccesses"
-           type="number"
-           min="0"
-           max="3"
-           th:field="*{deathSaveSuccesses}">
-    <br>
-
-    <label for="deathSaveFailures">
-        Death Save Failures:
-    </label>
-
-    <input id="deathSaveFailures"
-           type="number"
-           min="0"
-           max="3"
-           th:field="*{deathSaveFailures}">
-    <br>
-
-    <label for="exhaustionLevel">
-        Exhaustion Level:
-    </label>
-
-    <input id="exhaustionLevel"
-           type="number"
-           min="0"
-           max="6"
-           th:field="*{exhaustionLevel}">
-    <br>
-
-
-    <!-- ========================= -->
-    <!-- MONEY -->
-    <!-- ========================= -->
-
-    <h2>Currency</h2>
-
-    <label for="pp">Platinum:</label>
-    <input id="pp"
-           type="number"
-           th:field="*{pp}">
-    <br>
-
-    <label for="gp">Gold:</label>
-    <input id="gp"
-           type="number"
-           th:field="*{gp}">
-    <br>
-
-    <label for="ep">Electrum:</label>
-    <input id="ep"
-           type="number"
-           th:field="*{ep}">
-    <br>
-
-    <label for="sp">Silver:</label>
-    <input id="sp"
-           type="number"
-           th:field="*{sp}">
-    <br>
-
-    <label for="cp">Copper:</label>
-    <input id="cp"
-           type="number"
-           th:field="*{cp}">
-    <br>
-
-
-    <!-- ========================= -->
-    <!-- EQUIPMENT -->
-    <!-- ========================= -->
-
-    <h2>Equipment</h2>
-
-    <label for="equipment0">Equipment:</label>
-
-    <input id="equipment0"
-           type="text"
-           th:field="*{equipment[0]}">
-    <br>
-
-
-    <!-- ========================= -->
-    <!-- PROFICIENCIES / LANGUAGES -->
-    <!-- ========================= -->
-
-    <h2>Proficiencies, Languages and Feats</h2>
-
-    <label for="proficiency0">
-        Proficiency / Language / Feat:
-    </label>
-
-    <input id="proficiency0"
-           type="text"
-           th:field="*{proficienciesLanguagesFeats[0]}">
-    <br>
-
-
-    <!-- ========================= -->
-    <!-- TREASURE -->
-    <!-- ========================= -->
-
-    <h2>Treasure and Equipment</h2>
-
-    <label for="treasure0">Treasure:</label>
-
-    <input id="treasure0"
-           type="text"
-           th:field="*{treasureAndEquipment[0]}">
-    <br>
-
-
-    <!-- ========================= -->
-    <!-- FEATURES / TRAITS -->
-    <!-- ========================= -->
-
-    <h2>Features and Traits</h2>
-
-    <label for="feature0">Feature / Trait:</label>
-
-    <input id="feature0"
-           type="text"
-           th:field="*{featuresAndTraits[0]}">
-    <br>
-
-
-    <!-- ========================= -->
-    <!-- WEAPONS -->
-    <!-- ========================= -->
-
-    <h2>Weapons</h2>
-
-    <p>
-        Weapon entry will be added after the Weapon
-        class is finalized.
-    </p>
-
-
-    <!-- ========================= -->
-    <!-- ARMOR -->
-    <!-- ========================= -->
-
-    <h2>Armor</h2>
-
-    <p>
-        Armor entry will be added after the Armor
-        class is finalized.
-    </p>
-
-
-    <br><br>
-
-    <button type="submit">
-        Create Character
-    </button>
+    <section class="basic-info">
+        <h2>Basic Information</h2>
+
+        <label for="playerName">Player Name:</label>
+        <input id="playerName"
+               type="text"
+               th:field="*{playerName}">
+
+        <label for="characterName">Character Name:</label>
+        <input id="characterName"
+               type="text"
+               th:field="*{characterName}">
+
+        <label for="race">Race:</label>
+        <input id="race"
+               type="text"
+               th:field="*{race}">
+
+        <label for="classType">Class:</label>
+        <input id="classType"
+               type="text"
+               th:field="*{classType}">
+
+        <label for="subClass">Subclass:</label>
+        <input id="subClass"
+               type="text"
+               th:field="*{subClass}">
+
+        <label for="background">Background:</label>
+        <input id="background"
+               type="text"
+               th:field="*{background}">
+
+        <label for="alignment">Alignment:</label>
+        <input id="alignment"
+               type="text"
+               th:field="*{alignment}">
+    </section>
+
+
+    <section class="level-experience">
+        <h2>Level and Experience</h2>
+
+        <label for="level">Level:</label>
+        <input id="level"
+               type="number"
+               th:field="*{level}">
+
+        <label for="proficiencyBonus">Proficiency Bonus:</label>
+        <input id="proficiencyBonus"
+               type="number"
+               th:field="*{proficiencyBonus}">
+
+        <label for="experiencePoints">Experience Points:</label>
+        <input id="experiencePoints"
+               type="number"
+               th:field="*{experiencePoints}">
+    </section>
+
+
+    <section class="combat">
+        <h2>Combat</h2>
+
+        <label for="armorClass">Armor Class:</label>
+        <input id="armorClass"
+               type="number"
+               th:field="*{armorClass}">
+
+        <label for="initiative">Initiative:</label>
+        <input id="initiative"
+               type="number"
+               th:field="*{initiative}">
+
+        <label for="speed">Speed:</label>
+        <input id="speed"
+               type="number"
+               th:field="*{speed}">
+
+        <label for="currentHp">Current HP:</label>
+        <input id="currentHp"
+               type="number"
+               th:field="*{currentHp}">
+
+        <label for="maxHp">Maximum HP:</label>
+        <input id="maxHp"
+               type="number"
+               th:field="*{maxHp}">
+
+        <label for="tempHp">Temporary HP:</label>
+        <input id="tempHp"
+               type="number"
+               th:field="*{tempHp}">
+    </section>
+
+
+    <section class="ability-scores">
+        <h2>Ability Scores</h2>
+
+        <label for="strength">Strength:</label>
+        <input id="strength"
+               type="number"
+               th:field="*{abilityScores.strength}">
+
+        <label for="dexterity">Dexterity:</label>
+        <input id="dexterity"
+               type="number"
+               th:field="*{abilityScores.dexterity}">
+
+        <label for="constitution">Constitution:</label>
+        <input id="constitution"
+               type="number"
+               th:field="*{abilityScores.constitution}">
+
+        <label for="intelligence">Intelligence:</label>
+        <input id="intelligence"
+               type="number"
+               th:field="*{abilityScores.intelligence}">
+
+        <label for="wisdom">Wisdom:</label>
+        <input id="wisdom"
+               type="number"
+               th:field="*{abilityScores.wisdom}">
+
+        <label for="charisma">Charisma:</label>
+        <input id="charisma"
+               type="number"
+               th:field="*{abilityScores.charisma}">
+    </section>
+
+
+    <section class="status">
+        <h2>Status</h2>
+
+        <label for="deathSaveSuccesses">
+            Death Save Successes:
+        </label>
+        <input id="deathSaveSuccesses"
+               type="number"
+               min="0"
+               max="3"
+               th:field="*{deathSaveSuccesses}">
+
+        <label for="deathSaveFailures">
+            Death Save Failures:
+        </label>
+        <input id="deathSaveFailures"
+               type="number"
+               min="0"
+               max="3"
+               th:field="*{deathSaveFailures}">
+
+        <label for="exhaustionLevel">
+            Exhaustion Level:
+        </label>
+        <input id="exhaustionLevel"
+               type="number"
+               min="0"
+               max="6"
+               th:field="*{exhaustionLevel}">
+    </section>
+
+
+    <section class="currency">
+        <h2>Currency</h2>
+
+        <label for="pp">Platinum:</label>
+        <input id="pp"
+               type="number"
+               th:field="*{pp}">
+
+        <label for="gp">Gold:</label>
+        <input id="gp"
+               type="number"
+               th:field="*{gp}">
+
+        <label for="ep">Electrum:</label>
+        <input id="ep"
+               type="number"
+               th:field="*{ep}">
+
+        <label for="sp">Silver:</label>
+        <input id="sp"
+               type="number"
+               th:field="*{sp}">
+
+        <label for="cp">Copper:</label>
+        <input id="cp"
+               type="number"
+               th:field="*{cp}">
+    </section>
+
+
+    <section class="equipment">
+        <h2>Equipment</h2>
+
+        <label for="equipment0">Equipment:</label>
+        <input id="equipment0"
+               type="text"
+               th:field="*{equipment[0]}">
+    </section>
+
+
+    <section class="proficiencies">
+        <h2>Proficiencies, Languages and Feats</h2>
+
+        <label for="proficiency0">
+            Proficiency / Language / Feat:
+        </label>
+
+        <input id="proficiency0"
+               type="text"
+               th:field="*{proficienciesLanguagesFeats[0]}">
+    </section>
+
+
+    <section class="treasure">
+        <h2>Treasure and Equipment</h2>
+
+        <label for="treasure0">Treasure:</label>
+        <input id="treasure0"
+               type="text"
+               th:field="*{treasureAndEquipment[0]}">
+    </section>
+
+
+    <section class="features">
+        <h2>Features and Traits</h2>
+
+        <label for="feature0">Feature / Trait:</label>
+        <input id="feature0"
+               type="text"
+               th:field="*{featuresAndTraits[0]}">
+    </section>
+
+
+    <section class="weapons">
+        <h2>Weapons</h2>
+
+        <p>
+            Weapon entry will be added after the Weapon
+            class is finalized.
+        </p>
+    </section>
+
+
+    <section class="armor">
+        <h2>Armor</h2>
+
+        <p>
+            Armor entry will be added after the Armor
+            class is finalized.
+        </p>
+    </section>
+
+
+    <div class="form-submit">
+        <button type="submit">
+            Create Character
+        </button>
+    </div>
 
 </form>
 

@@ -5,351 +5,274 @@
 <head>
     <meta charset="UTF-8">
     <title>Character Sheet</title>
+
+    <link rel="stylesheet"
+          th:href="@{/css/Character.css}">
 </head>
 
 <body>
-
-
-<!-- ========================= -->
-<!-- CHARACTER NAME -->
-<!-- ========================= -->
 
 <h1 th:text="${playerCharacter.characterName}">
     Character Name
 </h1>
 
+<main class="character-form-grid">
 
-<!-- ========================= -->
-<!-- BASIC INFORMATION -->
-<!-- ========================= -->
+    <section class="basic-info">
 
-<h2>Basic Information</h2>
+        <h2>Basic Information</h2>
 
-<p>
-    <strong>Player:</strong>
-    <span th:text="${playerCharacter.playerName}"></span>
-</p>
+        <strong>Player Name:</strong>
+        <span th:text="${playerCharacter.playerName}"></span>
 
-<p>
-    <strong>Character:</strong>
-    <span th:text="${playerCharacter.characterName}"></span>
-</p>
+        <strong>Character Name:</strong>
+        <span th:text="${playerCharacter.characterName}"></span>
 
-<p>
-    <strong>Race:</strong>
-    <span th:text="${playerCharacter.race}"></span>
-</p>
+        <strong>Race:</strong>
+        <span th:text="${playerCharacter.race}"></span>
 
-<p>
-    <strong>Class:</strong>
-    <span th:text="${playerCharacter.classType}"></span>
-</p>
+        <strong>Class:</strong>
+        <span th:text="${playerCharacter.classType}"></span>
 
-<p>
-    <strong>Subclass:</strong>
-    <span th:text="${playerCharacter.subClass}"></span>
-</p>
+        <strong>Subclass:</strong>
+        <span th:text="${playerCharacter.subClass}"></span>
 
-<p>
-    <strong>Background:</strong>
-    <span th:text="${playerCharacter.background}"></span>
-</p>
+        <strong>Background:</strong>
+        <span th:text="${playerCharacter.background}"></span>
 
-<p>
-    <strong>Alignment:</strong>
-    <span th:text="${playerCharacter.alignment}"></span>
-</p>
+        <strong>Alignment:</strong>
+        <span th:text="${playerCharacter.alignment}"></span>
 
+    </section>
 
-<!-- ========================= -->
-<!-- LEVEL / EXPERIENCE -->
-<!-- ========================= -->
 
-<h2>Level and Experience</h2>
+    <section class="level-experience">
 
-<p>
-    <strong>Level:</strong>
-    <span th:text="${playerCharacter.level}"></span>
-</p>
+        <h2>Level and Experience</h2>
 
-<p>
-    <strong>Proficiency Bonus:</strong>
-    <span th:text="${playerCharacter.proficiencyBonus}"></span>
-</p>
+        <strong>Level:</strong>
+        <span th:text="${playerCharacter.level}"></span>
 
-<p>
-    <strong>Experience:</strong>
-    <span th:text="${playerCharacter.experiencePoints}"></span>
-</p>
+        <strong>Proficiency Bonus:</strong>
+        <span th:text="${playerCharacter.proficiencyBonus}"></span>
 
+        <strong>Experience Points:</strong>
+        <span th:text="${playerCharacter.experiencePoints}"></span>
 
-<!-- ========================= -->
-<!-- COMBAT -->
-<!-- ========================= -->
+    </section>
 
-<h2>Combat</h2>
 
-<p>
-    <strong>Armor Class:</strong>
-    <span th:text="${playerCharacter.armorClass}"></span>
-</p>
+    <section class="combat">
 
-<p>
-    <strong>Initiative:</strong>
-    <span th:text="${playerCharacter.initiative}"></span>
-</p>
+        <h2>Combat</h2>
 
-<p>
-    <strong>Speed:</strong>
-    <span th:text="${playerCharacter.speed}"></span>
-</p>
+        <strong>Armor Class:</strong>
+        <span th:text="${playerCharacter.armorClass}"></span>
 
-<p>
-    <strong>Current HP:</strong>
-    <span th:text="${playerCharacter.currentHp}"></span>
-</p>
+        <strong>Initiative:</strong>
+        <span th:text="${playerCharacter.initiative}"></span>
 
-<p>
-    <strong>Maximum HP:</strong>
-    <span th:text="${playerCharacter.maxHp}"></span>
-</p>
+        <strong>Speed:</strong>
+        <span th:text="${playerCharacter.speed}"></span>
 
-<p>
-    <strong>Temporary HP:</strong>
-    <span th:text="${playerCharacter.tempHp}"></span>
-</p>
+        <strong>Current HP:</strong>
+        <span th:text="${playerCharacter.currentHp}"></span>
 
+        <strong>Maximum HP:</strong>
+        <span th:text="${playerCharacter.maxHp}"></span>
 
-<!-- ========================= -->
-<!-- ABILITY SCORES -->
-<!-- ========================= -->
+        <strong>Temporary HP:</strong>
+        <span th:text="${playerCharacter.tempHp}"></span>
 
-<h2>Ability Scores</h2>
+    </section>
 
-<p>
-    <strong>Strength:</strong>
 
-    <span th:text="${playerCharacter.abilityScores.strength}">
-    </span>
+    <section class="ability-scores">
 
-    Modifier:
+        <h2>Ability Scores</h2>
 
-    <span th:text="${playerCharacter.abilityScores.getModifier(
-        playerCharacter.abilityScores.strength)}">
-    </span>
-</p>
+        <strong>Strength:</strong>
+        <span>
+            <span th:text="${playerCharacter.abilityScores.strength}"></span>
+            (
+            <span th:text="${playerCharacter.abilityScores.getModifier(
+                playerCharacter.abilityScores.strength)}"></span>
+            )
+        </span>
 
+        <strong>Dexterity:</strong>
+        <span>
+            <span th:text="${playerCharacter.abilityScores.dexterity}"></span>
+            (
+            <span th:text="${playerCharacter.abilityScores.getModifier(
+                playerCharacter.abilityScores.dexterity)}"></span>
+            )
+        </span>
 
-<p>
-    <strong>Dexterity:</strong>
+        <strong>Constitution:</strong>
+        <span>
+            <span th:text="${playerCharacter.abilityScores.constitution}"></span>
+            (
+            <span th:text="${playerCharacter.abilityScores.getModifier(
+                playerCharacter.abilityScores.constitution)}"></span>
+            )
+        </span>
 
-    <span th:text="${playerCharacter.abilityScores.dexterity}">
-    </span>
+        <strong>Intelligence:</strong>
+        <span>
+            <span th:text="${playerCharacter.abilityScores.intelligence}"></span>
+            (
+            <span th:text="${playerCharacter.abilityScores.getModifier(
+                playerCharacter.abilityScores.intelligence)}"></span>
+            )
+        </span>
 
-    Modifier:
+        <strong>Wisdom:</strong>
+        <span>
+            <span th:text="${playerCharacter.abilityScores.wisdom}"></span>
+            (
+            <span th:text="${playerCharacter.abilityScores.getModifier(
+                playerCharacter.abilityScores.wisdom)}"></span>
+            )
+        </span>
 
-    <span th:text="${playerCharacter.abilityScores.getModifier(
-        playerCharacter.abilityScores.dexterity)}">
-    </span>
-</p>
+        <strong>Charisma:</strong>
+        <span>
+            <span th:text="${playerCharacter.abilityScores.charisma}"></span>
+            (
+            <span th:text="${playerCharacter.abilityScores.getModifier(
+                playerCharacter.abilityScores.charisma)}"></span>
+            )
+        </span>
 
+    </section>
 
-<p>
-    <strong>Constitution:</strong>
 
-    <span th:text="${playerCharacter.abilityScores.constitution}">
-    </span>
+    <section class="status">
 
-    Modifier:
+        <h2>Status</h2>
 
-    <span th:text="${playerCharacter.abilityScores.getModifier(
-        playerCharacter.abilityScores.constitution)}">
-    </span>
-</p>
+        <strong>Death Save Successes:</strong>
+        <span th:text="${playerCharacter.deathSaveSuccesses}"></span>
 
+        <strong>Death Save Failures:</strong>
+        <span th:text="${playerCharacter.deathSaveFailures}"></span>
 
-<p>
-    <strong>Intelligence:</strong>
+        <strong>Exhaustion Level:</strong>
+        <span th:text="${playerCharacter.exhaustionLevel}"></span>
 
-    <span th:text="${playerCharacter.abilityScores.intelligence}">
-    </span>
+    </section>
 
-    Modifier:
 
-    <span th:text="${playerCharacter.abilityScores.getModifier(
-        playerCharacter.abilityScores.intelligence)}">
-    </span>
-</p>
+    <section class="currency">
 
+        <h2>Currency</h2>
 
-<p>
-    <strong>Wisdom:</strong>
+        <strong>Platinum:</strong>
+        <span th:text="${playerCharacter.pp}"></span>
 
-    <span th:text="${playerCharacter.abilityScores.wisdom}">
-    </span>
+        <strong>Gold:</strong>
+        <span th:text="${playerCharacter.gp}"></span>
 
-    Modifier:
+        <strong>Electrum:</strong>
+        <span th:text="${playerCharacter.ep}"></span>
 
-    <span th:text="${playerCharacter.abilityScores.getModifier(
-        playerCharacter.abilityScores.wisdom)}">
-    </span>
-</p>
+        <strong>Silver:</strong>
+        <span th:text="${playerCharacter.sp}"></span>
 
+        <strong>Copper:</strong>
+        <span th:text="${playerCharacter.cp}"></span>
 
-<p>
-    <strong>Charisma:</strong>
+    </section>
 
-    <span th:text="${playerCharacter.abilityScores.charisma}">
-    </span>
 
-    Modifier:
+    <section class="equipment">
 
-    <span th:text="${playerCharacter.abilityScores.getModifier(
-        playerCharacter.abilityScores.charisma)}">
-    </span>
-</p>
+        <h2>Equipment</h2>
 
+        <ul>
+            <li th:each="item : ${playerCharacter.equipment}"
+                th:text="${item}">
+            </li>
+        </ul>
 
-<!-- ========================= -->
-<!-- STATUS -->
-<!-- ========================= -->
+    </section>
 
-<h2>Status</h2>
 
-<p>
-    <strong>Death Save Successes:</strong>
-    <span th:text="${playerCharacter.deathSaveSuccesses}"></span>
-</p>
+    <section class="proficiencies">
 
-<p>
-    <strong>Death Save Failures:</strong>
-    <span th:text="${playerCharacter.deathSaveFailures}"></span>
-</p>
+        <h2>Proficiencies, Languages and Feats</h2>
 
-<p>
-    <strong>Exhaustion:</strong>
-    <span th:text="${playerCharacter.exhaustionLevel}"></span>
-</p>
+        <ul>
+            <li th:each="item : ${playerCharacter.proficienciesLanguagesFeats}"
+                th:text="${item}">
+            </li>
+        </ul>
 
+    </section>
 
-<!-- ========================= -->
-<!-- CURRENCY -->
-<!-- ========================= -->
 
-<h2>Currency</h2>
+    <section class="treasure">
 
-<p>
-    PP:
-    <span th:text="${playerCharacter.pp}"></span>
-</p>
+        <h2>Treasure and Equipment</h2>
 
-<p>
-    GP:
-    <span th:text="${playerCharacter.gp}"></span>
-</p>
+        <ul>
+            <li th:each="item : ${playerCharacter.treasureAndEquipment}"
+                th:text="${item}">
+            </li>
+        </ul>
 
-<p>
-    EP:
-    <span th:text="${playerCharacter.ep}"></span>
-</p>
+    </section>
 
-<p>
-    SP:
-    <span th:text="${playerCharacter.sp}"></span>
-</p>
 
-<p>
-    CP:
-    <span th:text="${playerCharacter.cp}"></span>
-</p>
+    <section class="features">
 
+        <h2>Features and Traits</h2>
 
-<!-- ========================= -->
-<!-- EQUIPMENT -->
-<!-- ========================= -->
+        <ul>
+            <li th:each="item : ${playerCharacter.featuresAndTraits}"
+                th:text="${item}">
+            </li>
+        </ul>
 
-<h2>Equipment</h2>
+    </section>
 
-<ul>
-    <li th:each="item : ${playerCharacter.equipment}"
-        th:text="${item}">
-    </li>
-</ul>
 
+    <section class="weapons">
 
-<!-- ========================= -->
-<!-- PROFICIENCIES -->
-<!-- ========================= -->
+        <h2>Weapons</h2>
 
-<h2>Proficiencies, Languages and Feats</h2>
+        <ul>
+            <li th:each="weapon : ${playerCharacter.weapons}"
+                th:text="${weapon}">
+            </li>
+        </ul>
 
-<ul>
-    <li th:each="item :
-        ${playerCharacter.proficienciesLanguagesFeats}"
-        th:text="${item}">
-    </li>
-</ul>
+    </section>
 
 
-<!-- ========================= -->
-<!-- TREASURE -->
-<!-- ========================= -->
+    <section class="armor">
 
-<h2>Treasure and Equipment</h2>
+        <h2>Armor</h2>
 
-<ul>
-    <li th:each="item :
-        ${playerCharacter.treasureAndEquipment}"
-        th:text="${item}">
-    </li>
-</ul>
+        <ul>
+            <li th:each="armor : ${playerCharacter.armors}"
+                th:text="${armor}">
+            </li>
+        </ul>
 
+    </section>
 
-<!-- ========================= -->
-<!-- FEATURES -->
-<!-- ========================= -->
 
-<h2>Features and Traits</h2>
+    <div class="form-submit">
 
-<ul>
-    <li th:each="item :
-        ${playerCharacter.featuresAndTraits}"
-        th:text="${item}">
-    </li>
-</ul>
+        <a th:href="@{/}">
+            Create Another Character
+        </a>
 
+    </div>
 
-<!-- ========================= -->
-<!-- WEAPONS -->
-<!-- ========================= -->
-
-<h2>Weapons</h2>
-
-<ul>
-    <li th:each="weapon : ${playerCharacter.weapons}"
-        th:text="${weapon}">
-    </li>
-</ul>
-
-
-<!-- ========================= -->
-<!-- ARMOR -->
-<!-- ========================= -->
-
-<h2>Armor</h2>
-
-<ul>
-    <li th:each="armor : ${playerCharacter.armors}"
-        th:text="${armor}">
-    </li>
-</ul>
-
-
-<hr>
-
-<a th:href="@{/}">
-    Create Another Character
-</a>
+</main>
 
 </body>
 </html>
